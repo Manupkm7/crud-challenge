@@ -36,7 +36,6 @@ export const TodoWrapper = ({ setUser }) => {
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
-    setUser((prev) => [...prev, todos]);
   };
 
   const editTodo = (id) => {
@@ -45,7 +44,6 @@ export const TodoWrapper = ({ setUser }) => {
         todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
       )
     );
-    setUser((prev) => [...prev, todos]);
   };
 
   const editTask = (task, id) => {
@@ -54,7 +52,6 @@ export const TodoWrapper = ({ setUser }) => {
         todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
       )
     );
-    setUser((prev) => [...prev, todos]);
   };
 
   return (
