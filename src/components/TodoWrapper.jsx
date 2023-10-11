@@ -22,6 +22,7 @@ export const TodoWrapper = ({ setUser }) => {
   };
 
   const deleteTodo = (id) => {
+    // This function searches and filters by id and saves it again in the array
     const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
     toast.success("Todo deleted Successfully!", {
@@ -31,6 +32,7 @@ export const TodoWrapper = ({ setUser }) => {
   };
 
   const toggleComplete = (id) => {
+    // This function marks each task as completed or not
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -39,6 +41,7 @@ export const TodoWrapper = ({ setUser }) => {
   };
 
   const editTodo = (id) => {
+    // This function is to be able to set whether the task is editable or not
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
@@ -47,6 +50,7 @@ export const TodoWrapper = ({ setUser }) => {
   };
 
   const editTask = (task, id) => {
+    //This is the function that edits the task and saves it in the array
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
