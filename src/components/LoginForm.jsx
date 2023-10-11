@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 //Here is the practical example of how I would apply the useUser hook to make a save, instead of receiving it by parameter
 
@@ -15,16 +16,16 @@ export const LoginForm = ({ setUser }) => {
 
     //This validation is bad but it could be improved based on a yup or custom validationSchema
     if (email === "" || password === "") {
-      return alert("Please fill all the fields");
+      return toast.error("Please fill all the fields");
     }
     if (password?.length < 6) {
-      return alert("Password must be at least 6 characters");
+       return toast.error("Password must be at least 6 characters");
     }
     if (email !== "manutest@gmail.com") {
-      return alert("mail");
+      return toast.error("Email does not match, try again");
     }
     if (password !== "123456") {
-      return alert("pass");
+      return toast.error("Password does not match, try again");
     }
 
     setUser([{ email, password }]);
@@ -70,6 +71,7 @@ export const LoginForm = ({ setUser }) => {
           Login
         </button>
       </div>
+      <Toaster />
     </form>
   );
 };
