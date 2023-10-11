@@ -23,7 +23,7 @@ function App() {
   //If the user is authenticated, it should come from a database and we should only send them the data directly in the child components to avoid re-rendering.
   //would be another hook const { saveUser } = useUser(); directly using it in the places to update without going through the parameter,
   // it would be a context that keeps in constant consultation if such a user exists to avoid inconveniences
-  console.log(user)
+
   return (
     <div className="App">
       {!user?.length > 0 ? (
